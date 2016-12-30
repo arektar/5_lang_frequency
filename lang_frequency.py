@@ -1,6 +1,6 @@
 def load_data(filepath):
-    file=open(filepath)
-    text=file.read()
+    text_file=open(filepath)
+    text=text_file.read()
     return text
 
 def get_most_frequent_words(text):
@@ -19,6 +19,6 @@ def get_most_frequent_words(text):
         frequancy.pop(max_fr_word[0])
 
 if __name__ == '__main__':
-    name=input("Write full file name: ")
-    text=load_data(name)
+    file_name=input("Write full file name: ")
+    text=load_data(file_name)
     get_most_frequent_words(text)
