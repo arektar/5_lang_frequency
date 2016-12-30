@@ -9,18 +9,14 @@ def get_most_frequent_words(text):
     for word in words:
         try: frequancy[word]+=1
         except:frequancy[word]=1
-    values=list(frequancy.values())
-    values.sort()
-    values.reverse()
-    printnum=10
-
-    for value in values:
-        for key in frequancy.keys():
-            if frequancy[key]==value:
-                print(str(key))
-                printnum-=1
-            if printnum == 0:break
-        if printnum==0:break
+    for i in range(10):
+        max_fr_word=['',0]
+        for word in list(frequancy):
+            if frequancy[word]>max_fr_word[1]:
+                max_fr_word[0]=word
+                max_fr_word[1]=frequancy[word]
+        print(max_fr_word[0])
+        frequancy.pop(max_fr_word[0])
 
 if __name__ == '__main__':
     name=input("Write full file name: ")
