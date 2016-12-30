@@ -3,36 +3,24 @@ def load_data(filepath):
     text=file.read()
     return text
 
-
-
 def get_most_frequent_words(text):
     words=text.split()
     frequancy={}
     for word in words:
         try: frequancy[word]+=1
         except:frequancy[word]=1
-    inv = dict()
-    for key in frequancy:
-        val = frequancy[key]
-        if val not in inv:
-            inv[val] = [key]
-        else:
-            inv[val].append(key)
-    keys=list(inv.keys())
-    keys.sort()
-    keys.reverse()
-    i=10
-    for key in keys:
-        try:
-            for one in inv[key]:
-                print(str(key) + " : " + one),
-                i=i-1
-                if i==0:raise
-        except:
-            if i!=0:
-                print("текст закончился")
-            break
+    values=list(frequancy.values())
+    values.sort()
+    values.reverse()
+    printnum=10
 
+    for value in values:
+        for key in frequancy.keys():
+            if frequancy[key]==value:
+                print(str(key))
+                printnum-=1
+            if printnum == 0:break
+        if printnum==0:break
 
 if __name__ == '__main__':
     name=input("Write full file name: ")
