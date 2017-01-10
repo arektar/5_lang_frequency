@@ -1,20 +1,19 @@
+import collections
+
 def load_data(filepath):
-    text_file=open(filepath)
-    text=text_file.read()
+    with open(filepath) as file:
+        text=file.read()
     return text
 
 def get_most_frequent_words(text):
+    freq_collection_list=collections.Counter()
     words=text.split()
-    for i in range(10):
-        max_fr_word=['',0]
-        for word in words:
-            if words.count(word)>max_fr_word[1]:
-                max_fr_word[0]=word
-                max_fr_word[1]=words.count(word)
-        print(max_fr_word[0])
-        while max_fr_word[0] in words:words.remove(max_fr_word[0])
+    for word in words:
+        freq_collection_list[word]+=1
+    return freq_collection_list
 
 if __name__ == '__main__':
     file_name=input("Write full file name: ")
     text=load_data(file_name)
-    get_most_frequent_words(text)
+    most_oft_words=get_most_frequent_words(text)
+    for word,times_found in most_oft_words.most_common(10):print(word+" "+str(times_found))
