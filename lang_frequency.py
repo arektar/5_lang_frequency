@@ -16,4 +16,5 @@ if __name__ == '__main__':
     file_name=input("Write full file name: ")
     text=load_data(file_name)
     most_oft_words=get_most_frequent_words(text)
-    for word,times_found in most_oft_words.most_common(10):print(word+" "+str(times_found))
+    print("Топ часто встречающихся слов:")
+    for word,times_found in most_oft_words.most_common(10):print(word+" "+str(times_found)+" раз(а).")
