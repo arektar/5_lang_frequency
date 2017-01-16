@@ -9,7 +9,8 @@ def load_data(file_path):
 
 
 def get_most_frequent_words(words):
-    return collections.Counter(words).most_common(10)
+    lot_of_freq_words = 10
+    return collections.Counter(words).most_common(lot_of_freq_words)
 
 
 if __name__ == '__main__':
